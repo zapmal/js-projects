@@ -8,7 +8,7 @@ function toggleActive(e) {
     if (!e.propertyName.includes("flex")) return;
 
     this.classList.toggle("open-active");
-};
+}
 
 panels.forEach(panel => panel.addEventListener("click", toggleOpen));
 panels.forEach(panel => panel.addEventListener("transitionend", toggleActive));
