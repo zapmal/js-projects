@@ -435,7 +435,7 @@ console.log(allAdult)    // gives the value of allAdult variable
 console.log({allAdult})  // gives the allAdult object itself
 ```
 
-![](images/07_01.png)
+![](readme_img/07_01.png)
 
 ### `Array.prototype.find()`
 
@@ -534,7 +534,7 @@ let's take a look those two `...comments.slice()` above, what do we get for our 
 
 - now we know that the `index = 1` which is the element we want to delete.
 
-![](images/07_03.png)
+![](readme_img/07_03.png)
 
 `slice()` syntax:
 
@@ -566,4 +566,4 @@ console.log(newNums);  // [2, 3]
 
 results in our tutorial:
 
-![](images/07_02.png)
+![](readme_img/07_02.png)
