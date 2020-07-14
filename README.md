@@ -100,10 +100,9 @@ else minHand.style.transition = 'all 0.1s';
 ```
 
 # 03 - CSS Variables and JavaScript.
+`data-` attribute, `:root`, CSS Variables definition `var(--xxx)`, `filter: blur()`, `change` event and `mousemove` event
 
 ![](readme_img/03_00.png)
-
-`data-` attribute, `:root`, CSS Variables definition `var(--xxx)`, `filter: blur()`, `change` event and `mousemove` event
 
 - [`dataset`](https://developer.mozilla.org/zh-TW/docs/Web/API/HTMLElement/dataset) property allows to custom data attributes like `data-xxx` on the element, either in HTML or in the DOM. It's a map of **DOMString**, one entry for each custom data attribute.
 
