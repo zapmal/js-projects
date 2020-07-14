@@ -24,6 +24,7 @@ const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
 
 - `keyCode` property is the *KEY* to connect our buttons(`<div>`s) and sounds(`<audio>`s).
 - `keyCode` 's value is same as `ASCII` code (in lowercase letter ), check keycodes [here](http://keycode.info/).
+- NOTE: `keyCode` is DEPRECATED. I'll update this in the future.
 - `data-key` is set for mapping buttons and audios to get the `keyCode`s via `keydown` event.
 - the whole `querySelector` expression has to be in back ticks (```).
 - `${}` is syntactic sugar for template literals, read more about `Expression interpolation` [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
