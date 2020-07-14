@@ -153,7 +153,7 @@ document.documentElement.style.setProperty('--base', '#000');
 # 04 - Array cardio 1.
 `console.table()`, `filter()`, `map()`, `sort()`, `reduce()`
 
-![] (readme_img/04_00.png)
+![](readme_img/04_00.png)
 
 ### filter
 
