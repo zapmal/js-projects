@@ -780,7 +780,7 @@ let inBetween = false;
 [ ] e  <- inBetween = x, it doesn't get in the if condition
 ```
 
-![](images/10_01.png)
+![](readme_img/10_01.png)
 
 I've got stuck in a long time for that iteraling to the input c, how come its `inBetween` is true, seems like it doesn't match either `checkbox === this` or `checkbox === lastChecked`, is beacuse the `inBetween` had fliped to true so that it's true when checking on input c, right ?
 
@@ -793,7 +793,7 @@ hope this way will help you understand much better like I did.
 
 I guess the above two problems both are the same logic issues.
 
-![](images/10_02.png)
+![](readme_img/10_02.png)
 
 The figure above shows the problem 1 result I'd tried, and I think that is because in this case only has a seleted input just right equals the `checkbox === lastChecked` and some how it treat the last input as the `checkbox === this`, so it will iteral over all the rest of inputs (after the one we seleted), and set the `inBetween = true` till the end.
 
