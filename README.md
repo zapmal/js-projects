@@ -738,24 +738,17 @@ checkboxes.forEach(checkbox => checkbox.addEventListener( 'click', handleCheck )
   - check an input b <- will be `this`
   - then we want to all the inputs between a and b will also be checked <- `inBetween`'s inputs `.checked = true`;
 
-- in tutorial
+- after searching:
 
 ```
 let lastChecked;
 
 function handleCheck(e) {
-  // console.log(e);
-  // check if they have shift key down
-  // and check that they are checking it
   let inBetween = false;
   if(e.shiftKey && this.checked) {
-    // go ahead and do what we please
-    // loop over every single checkbox
     checkboxes.forEach(checkbox => {
-      console.log(checkbox);
       if(checkbox === this || checkbox === lastChecked) {
         inBetween = !inBetween;
-        console.log('Starting to check them inbetween');
       }
 
       if(inBetween) {
@@ -774,7 +767,7 @@ function handleCheck(e) {
 
 ### Where I got stuck
 
-let's take a look in a pseudo-code way, and I always like to use this way :)
+let's take a look in a pseudo-code way
 
 ```
 let inBetween = false;
