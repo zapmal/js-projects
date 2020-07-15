@@ -1,6 +1,6 @@
 # Small JavaScript Projects
 
-> Projects done to practice JavaScript.
+> The following are notes of the projects.
 
 # 01 - Drum Kit.
 Key Event Listener, audio play and toggle class.
