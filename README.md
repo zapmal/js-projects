@@ -859,13 +859,15 @@ function handleCheck(e) {
 }
 ```
 
-![](images/10_03.png)
+![](readme_img/10_03.png)
 
 well then...now it seems much better, but I think there are some other tiny problems...
 I have not updated the code yet, just tested the fix.
 
 # 11 - Custom Video Player
 `video.paused`, `video.currentTime`, `dataset` of `.data-` attribute, `parseFloat()`
+
+![](readme_img/11_00.png)
 
 ### Get all the elements we need
 
@@ -923,7 +925,7 @@ const ranges = document.querySelectorAll('.player__slider');
   console.log({toggle});  // log the `{toggle}` out to see where the `textContent` is
   ```
 
-  ![](images/11_01.png)
+  ![](readme_img/11_01.png)
 
 - function skip()
   - click the skip buttons to skip
@@ -936,7 +938,7 @@ const ranges = document.querySelectorAll('.player__slider');
   ```
   `console.log(this.dataset)` can get the information which is the value we just added as `data-skip` attribute on HTML like:
 
-  ![](images/11_02.png)
+  ![](readme_img/11_02.png)
 
   then we use its `skip` property and `parseFloat` into a float number to `-10s` or `+25s`  the `currentTime`
 
@@ -952,7 +954,7 @@ const ranges = document.querySelectorAll('.player__slider');
 
   the `name` of `this.name` is the `volume` or `playbackRate`, just what we define the `name` attributes of the inputs on HTML
 
-  ![](images/11_03.png)
+  ![](readme_img/11_03.png)
 
 - function handleProgress()
   - update the progress bar when the video plays
