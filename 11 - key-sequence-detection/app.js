@@ -1,6 +1,7 @@
 // konami code, basically a keylogger
 const pressed = [];
-const secretCode = "woosh";
+// caesar cipher of "code"
+const secretCode = "frgh";
 
 window.addEventListener("keyup", e => {
     pressed.push(e.key);
@@ -9,5 +10,4 @@ window.addEventListener("keyup", e => {
     if (pressed.join("").includes(secretCode)) {
         console.log("DING DING DING");
     }
-    console.log(pressed);
 });
