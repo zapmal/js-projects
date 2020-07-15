@@ -1,0 +1,4 @@
+# Ignore the test video and it's folder.
+.mp4
+
+test-video
