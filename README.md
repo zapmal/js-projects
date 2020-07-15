@@ -862,5 +862,6 @@ function handleCheck(e) {
 ![](images/10_03.png)
 
 well then...now it seems much better, but I think there are some other tiny problems...
+I have not updated the code yet, just tested the fix.
 
 # Work in progress!
