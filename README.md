@@ -719,7 +719,7 @@ if (e.type != "mousemove") {
 }
 ```
 
-# 10 - Hold Shift and Check Checkboxes (Gmail feature)
+# 09 - Hold Shift and Check Checkboxes (Gmail feature)
 
 ![](readme_img/10_00.png)
 
@@ -864,7 +864,7 @@ function handleCheck(e) {
 well then...now it seems much better, but I think there are some other tiny problems...
 I have not updated the code yet, just tested the fix.
 
-# 11 - Custom Video Player
+# 10 - Custom Video Player
 `video.paused`, `video.currentTime`, `dataset` of `.data-` attribute, `parseFloat()`
 
 ![](readme_img/11_00.png)
