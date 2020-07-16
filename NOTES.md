@@ -1108,7 +1108,7 @@ window.addEventListener('scroll', debounce(checkSlide));
 
 if we don't do debounce, then it will too much like:
 
-![](images/13_01.png)
+![](readme_img/13_01.png)
 
 ### Checking images
 
