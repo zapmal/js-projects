@@ -1093,4 +1093,49 @@ if(pressed.join('').includes(secretCode)) {
 }
 ```
 
+# 12 - Slide In On Scroll
+`window.scrollY`, `window.innerHeight`, `offsetTop`
+
+![](readme_img/13_00.png)
+
+### Debouncing
+
+use debounce function provided to avoid performance issue, just wrap the `checkSlide` function into the `debounce()` function
+
+```
+window.addEventListener('scroll', debounce(checkSlide));
+```
+
+if we don't do debounce, then it will too much like:
+
+![](images/13_01.png)
+
+### Checking images
+
+```
+function checkSlide(e) {
+  sliderImages.forEach(sliderImage => {
+
+    // half way through the image
+    const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+
+    // bottom of the image
+    const imageBottom = sliderImage.offsetTop + sliderImage.height;
+
+    const isHalfShown = slideInAt > sliderImage.offsetTop;
+    const isNotScrolledPast = window.scrollY < imageBottom;
+
+    if(isHalfShown && isNotScrolledPast) {
+      sliderImage.classList.add('active');
+    } else {
+      sliderImage.classList.remove('active');
+    }
+}
+```
+
+the `.offsetTop` tells the top of image is how far from the top of the actual window
+
+### What is debouncing? 
+[Debouncing](https://www.geeksforgeeks.org/debouncing-in-javascript/) in JavaScript is a practice used to improve browser performance. There might be some functionality in a web page which requires time-consuming computations. If such a method is invoked frequently, it might greatly affect the performance of the browser, as JavaScript is a single threaded language.
+
 # Work in progress!
