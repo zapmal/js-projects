@@ -325,7 +325,7 @@ fetch('flowers.jpg')
 
 above example shows that it use the `blob()` to fetch image. and there are many other ways as well. we use `json()` it this case.
 
-![](images/06_console.png)
+![](readme_img/06_console.png)
 
 ### ES6 Spread syntax
 
@@ -1464,7 +1464,7 @@ now we `console.log()` out will see that `this` is `.hero` and `e.target` is `h1
 console.log(this, e.target);
 ```
 
-![](images/16_01.png)
+![](readme_img/16_01.png)
 
 calculate offset positions
 
@@ -1481,7 +1481,7 @@ console.log(xWalk, yWalk);
 
 log the `xWalk` and `yWalk` out to see the offsets after calculating
 
-![](images/16_02.png)
+![](readme_img/16_02.png)
 
 and the CSS part, add the `textShadow` effect
 
@@ -1523,7 +1523,7 @@ if(strip(a) > strip(b)) {
 
 by default, it will sort by alphabetical order
 
-![](images/17_01.png)
+![](readme_img/17_01.png)
 
 ### Strip out the words that we don't want
 
@@ -1536,13 +1536,13 @@ function strip(bandName) {
 ```
 test it to see if it works
 
-![](images/17_02.png)
+![](readme_img/17_02.png)
 
 **[NOTICE]** we are only using `strip()` in if statement, and we are not actually going to be modify our data (it's not neccessary to do so)
 
 then now it's sorted by alphabetical order after `strip()` the array
 
-![](images/17_03.png)
+![](readme_img/17_03.png)
 
 ### Put them together
 
@@ -1557,11 +1557,11 @@ it takes the element and sets to the `innerHTML`, and that's going to return an 
 
 if without `join('')`:
 
-![](images/17_04.png)
+![](readme_img/17_04.png)
 
 so we need to 'join('')' to remove commas:
 
-![](images/17_05.png)
+![](readme_img/17_05.png)
 
 
 # 17 - Adding Up Times with Reduce
