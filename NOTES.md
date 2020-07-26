@@ -1853,5 +1853,72 @@ function(err) {
 
 ![](readme_img/21_01.png)
 
+# 21 - Follow Along Links
+
+![](readme_img/22_00.png)
+
+### To `createElement()` and `append()` it on to the DOM
+
+```
+const triggers = document.querySelectorAll('a');
+const highlight = document.createElement('span');
+
+highlight.classList.add('highlight');
+document.body.append(highlight);
+```
+
+### The `highlightLink()` function
+
+```
+function highlightLink() {
+  const linkCoordinates = this.getBoundingClientRect();
+  // console.log(this);  // <a> itself
+  console.log(linkCoords);
+
+  const coordinates = {
+    width: linkCoordinates.width,
+    height: linkCoordinates.height,
+    top: linkCoordinates.top + window.scrollY,
+    left: linkCoordinates.left + window.scrollX
+  };
+
+  highlight.style.width =`${coordinates.width}px`;
+  highlight.style.height =`${coordinates.height}px`;
+  highlight.style.transform = `translate(${coordinates.left}px, ${coordinates.top}px)`;
+}
+
+triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+```
+
+**[NOTE]** need to add `window.scrollX` and `window.scrollX` to prevent wrong position while scroll occured
+
+```
+top: linkCoords.top + window.scrollY,
+left: linkCoords.left + window.scrollX
+```
+
+- `this`: every single `<a>` element itself
+- to `console.log(linkCoords);` will get
+
+![](images/22_01.png)
+
+we can see what we have here
+
+![](images/22_02.png)
+
+### Set a initial start corrdinates
+
+because we don't want it "slide" in from the `(X,Y) = (0,0)` of window's coordinates, so let's set it start from the first `<li>` element of `<nav>`
+
+```
+const initStart = {
+  left: initCoord.left + window.scrollX,
+  top: initCoord.top + window.scrollY
+};
+
+highlight.style.transform = `translate(${initStart.left}px, ${initStart.top}px)`;
+```
+
+
 
 # Work in progress!
