@@ -2017,5 +2017,32 @@ speakButton.addEventListener('click', toggle);
 stopButton.addEventListener('click', () => toggle(false));
 ```
 
+# 23 - Sticky Nav
+
+![](readme_img/24_00.png)
+
+### Get the position of nav
+
+get nav's top position related to the top of window
+
+```
+const nav = document.querySelector('#main');
+const topOfNav = nav.offsetTop;  // 320
+```
+
+### The `fixNav()` function
+
+```
+function fixNav() {
+  if (window.scrollY >= topOfNav) {
+    document.body.style.paddingTop = `${nav.offsetHeight}px`;  // 77px (nav's height)
+    nav.classList.add('fixed-nav');
+  } else {
+    document.body.style.paddingTop = 0;
+    nav.classList.remove('fixed-nav');
+  }
+}
+
+window.addEventListener('scroll', fixNav);
 
 # Work in progress!
