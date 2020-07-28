@@ -1900,11 +1900,11 @@ left: linkCoords.left + window.scrollX
 - `this`: every single `<a>` element itself
 - to `console.log(linkCoords);` will get
 
-![](images/22_01.png)
+![](readme_img/22_01.png)
 
 we can see what we have here
 
-![](images/22_02.png)
+![](readme_img/22_02.png)
 
 ### Set a initial start corrdinates
 
@@ -1958,7 +1958,7 @@ voices = this.getVoices();
 console.log(voices);
 ```
 
-![](images/23_01.png)
+![](readme_img/23_01.png)
 
 - for select dropdown
 
@@ -2044,5 +2044,71 @@ function fixNav() {
 }
 
 window.addEventListener('scroll', fixNav);
+
+# 24 - Event Capture, Propagation, Bubbling and Once.
+
+![](readme_img/25_00.png)
+
+
+`e.stopPropagation()`, `capture`, `once`
+
+### The `event.stopPropagation()`
+
+The [`event.stopPropagation()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) prevents further propagation of the current event in the capturing and bubbling phases.
+
+To bubble up which means that it's triggering that events as you go up, so use `e.stopPropagation();` to stop bubbling that event up.
+
+```
+function logText(e) {
+  console.log(this.classList.value);
+  e.stopPropagation();
+}
+
+document.body.addEventListener('click', logText);
+divs.forEach(div => div.addEventListener('click', logText));
+```
+
+- if we don't set `e.stopPropagation();` and `console.log(this.classList.value);` will get when we click on just the "three" `<div>`
+
+![](readme_img/25_01.png)
+
+### The `capture` and `once`
+
+refernce: [here -> EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+
+##### `capture`
+
+`capture` is a boolean that indicates that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree.
+
+```
+function logText(e) {
+  console.log(this.classList.value);
+}
+
+divs.forEach(div => div.addEventListener('click', logText, {
+  capture: false
+}));
+```
+
+- set `capture` is `true` or `false` **without** setting `e.stopPropagation();`
+
+![](readme_img/25_02.png)
+
+##### `once`
+
+`once` is a boolean indicating that the listener should be invoked at most once after being added. **If it is true, the listener would be removed automatically when it is invoked**.
+
+```
+button.addEventListener('click', () => {
+  console.log('Click!!!');
+}, {
+  once: false
+});
+```
+
+- set `once` is `ture` or `false` and click **multiple** times
+
+![](readme_img/25_03.png)
+
 
 # Work in progress!
