@@ -2042,9 +2042,9 @@ function fixNav() {
     nav.classList.remove('fixed-nav');
   }
 }
-```
 
 window.addEventListener('scroll', fixNav);
+```
 
 # 24 - Event Capture, Propagation, Bubbling and Once.
 
