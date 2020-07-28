@@ -2042,6 +2042,7 @@ function fixNav() {
     nav.classList.remove('fixed-nav');
   }
 }
+```
 
 window.addEventListener('scroll', fixNav);
 
