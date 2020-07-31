@@ -2306,5 +2306,242 @@ const playbackRate = percent * (max - min) + min;
 
 - `toFixed(2);` displays the number with 2 decimal places
 
+# 28 - Countdown Timer
 
-# Work in progress!
+![](readme_img/29_00.png)
+
+### The `timer()` function
+
+```
+let countdown;
+const timerDisplay = document.querySelector('.display__time-left');
+const endTime = document.querySelector('.display__end-time');
+const buttons = document.querySelectorAll('[data-time]');
+```
+
+```
+function timer(seconds) {
+  clearInterval(countdown);
+
+  const now = Date.now();
+  const then = now + seconds * 1000;
+
+  displayTimeLeft(seconds);
+  displayEndTime(then);
+
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+    // check if we should stop it
+    if (secondsLeft < 0) {
+      clearInterval(countdown);
+      return;
+    }
+
+    // display it
+    // console.log(secondsLeft);
+    displayTimeLeft(secondsLeft);
+  }, 1000);
+}
+```
+
+- `clearInterval(countdown);`: when start a timer, clear existing timers, and it always **needs a variable name of a `setInterval()`** to stop it.
+- remember to `clearInterval()` the timer at the **beginning** of the timer function.
+- `const now = Date.now();`: will get us current `timestamp` in milliseconds
+- `const then = now + seconds * 1000;`: `now` plus the number of seconds that you wish to run the timer for. `now` is in milliseconds, but `seconds` is not, so we need to multiple by 1000 to be in milliseconds as well
+
+```
+countdown = setInterval(() => {
+  const secondsLeft = Math.round((then - Date.now()) / 1000);
+  // check if we should stop it
+  if (secondsLeft < 0) {
+    clearInterval(countdown);
+    return;
+  }
+
+  // display it
+  displayTimeLeft(secondsLeft);
+}, 1000);
+```
+
+- `setInterval()` does not run immediately, it needs 1 second to start
+
+- **[NOTICE]** we can't use like:
+
+```
+setInterval(seconds, {
+  seconds—;
+});
+```
+
+because sometimes when the browser is not active, it might pause the `setInterval()`, and also pauses while scrolling in iOS.
+
+### The `displayTimeLeft()` function
+
+```
+function displayTimeLeft(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainderSeconds = seconds % 60;
+  const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
+
+  document.title = display;
+  timerDisplay.textContent = display;
+}
+```
+
+- use `textContent` over `innerText`. `innerText` is IE specific and does not cover all elements
+- `document.title = display;`: `document.title` can be dynamically set in JS, it updates the title of the webpage(the `<title>` tag on HTML) like:
+
+![](images/29_01.png)
+
+### The `displayEndTime()` function
+
+```
+function displayEndTime(timestamp) {
+  const end = new Date(timestamp);
+  const hour = end.getHours();
+  const adjustedHour = hour > 12 ? hour - 12 : hour;
+  const minutes = end.getMinutes();
+  endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
+}
+```
+
+- `const adjustedHour = hour > 12 ? hour - 12 : hour;`: adjust the time format as in 12-hours instead of 24-hours
+
+### The `startTimer()` function
+
+```
+function startTimer() {
+  const seconds = parseInt(this.dataset.time);
+  timer(seconds);
+}
+```
+
+- `const seconds = parseInt(this.dataset.time);`: change the value of `data-time` attribute (`dataset`) of an element into a real number (say from `"20"` into `20`) by `parseInt()`
+
+### Hook up events
+
+```
+buttons.forEach(button => button.addEventListener('click', startTimer));
+
+document.customForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const mins = this.minutes.value;
+  timer(mins * 60);
+  this.reset();  // clear form input value
+});
+```
+
+- **[NOTICE]** we can directly select as `document.elementName` if an element has a `name attribute` in the DOM of HTML (in this case is `document.customForm`, the `customForm` is a `name attribute` of `<form>` element)
+- `this.reset();`: clear form input value (`this` is the `form`)
+
+# 29 - Whack A Mole
+
+![](readme_img/30_00.png)
+
+### Set up things
+
+```
+const holes = document.querySelectorAll('.hole');
+const scoreBoard = document.querySelector('.score');
+const moles = document.querySelectorAll('.mole');
+
+let lastHole;
+let timeUp = false;
+let score = 0;
+```
+
+### The `randomTime()` function
+
+```
+function randomTime(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+```
+
+The [`Math.random(min, max)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) function returns a floating-point, pseudo-random number in the range (0, 1) that is, from 0 (inclusive) up to but not including 1 (exclusive), which you can then scale to your desired range.
+
+- the final `+ min` ensures that the minimum possible value if the difference between max and min is 0, will be the min value itself, so it basically offsets the value of max-min by the value of min itself, then we can get a valid number.
+
+### The `randomHole(holes)` function
+
+```
+function randomHole(holes) {
+  const idx = Math.floor(Math.random() * holes.length);
+  const hole = holes[idx];
+  if (hole === lastHole) {
+    console.log("Ah that is the same one bud");
+    return randomHole(holes);
+  }
+
+  lastHole = hole;
+  return hole;
+}
+```
+
+- randomly defines the hole to pop up mole.
+- if the `hole === lastHole` then re-execute the function again
+
+```
+if (hole === lastHole) {
+  console.log("Ah that is the same one bud");
+  return randomHole(holes);
+}
+
+lastHole = hole;
+```
+
+### The `peep()` function
+
+```
+function peep() {
+  const time = randomTime(200, 1000);
+  const hole = randomHole(holes);
+  hole.classList.add('up');
+
+  setTimeout(() => {
+    hole.classList.remove('up');
+    if(!timeUp) peep();
+  }, time);
+}
+```
+
+- `setTimeout()` to remove the `up` class if time up, otherwise keep `peep()`ing
+
+### The `startGame()` function
+
+on HTML
+
+```
+<button onClick="startGame()">START</button>
+```
+
+```
+function startGame() {
+  scoreBoard.textContent = 0;
+  timeUp = false; // in case page reload
+  score = 0;
+  peep();
+
+  setTimeout(() => timeUp = true, 10000);
+}
+```
+
+- define the game time which is 10 secs and set the `timeUp = true`
+
+### The `bonk(e)` function
+
+```
+function bonk(e) {
+  if(!e.isTrusted) return; // cheater
+  score ++;
+  this.classList.remove('up');
+  scoreBoard.textContent = score;
+}
+
+moles.forEach(mole => mole.addEventListener('click', bonk));
+```
+
+- `e.isTrusted` property which can check for fake clicks generated by javascript, in our game we need it to be `true` so that this actually came from the user's mouse input
+
+# Work in progress ?
