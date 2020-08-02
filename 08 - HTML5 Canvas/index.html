@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>HTML5 Canvas</title>
 </head>
+
 <body>
+
+    <div class="options">
+        <button>Clear Canvas</button>
+        
+        <label for="color">Change Color</label>
+        <input type="color" name="color" id="color">
+
+        <label for="line">Change Line Width</label>
+        <input type="range" name="line" id="line">
+
+        <label for="dynamicLine">Make Line and Color Dynamic?</label>
+        <input type="checkbox" name="dynamic" id="dynamicLine">
+    </div>
+
     <canvas id="draw" width="800" height="800"></canvas>
-    <script src="app.js"></script>
-    <style>
-        html, body {
-            margin: 0;
-        }
-    </style>
+    <script src="canvas.js"></script>
 </body>
+
 </html>

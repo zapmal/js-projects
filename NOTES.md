@@ -590,7 +590,7 @@ Canvas, HSL, mouse events
     var ctx = canvas.getContext('2d');
     ```
 
-in our tutorial we use these:
+we use these:
 
 - Properties
   - `ctx.lineCap`: the shape of the stroke, `round` | `butt` | `square`.
@@ -704,7 +704,6 @@ if(direction) {
 }
 ```
 
-
 - drawing on mobile?
 
 try
@@ -716,6 +715,11 @@ if (e.type != "mousemove") {
   y = e.changedTouches[0].clientY;
 }
 ```
+
+### UPDATE
+- Now you can change the color, the line width, clear the canvas and even go into "dynamic mode (hsl + change line width)
+
+![](readme_img/08_01.png)
 
 # 09 - Hold Shift and Check Checkboxes (Gmail feature)
 
