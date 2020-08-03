@@ -7,6 +7,7 @@ const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
 let mouseDown = false;
+progressBar.style.flexBasis = 0;
 
 function togglePlay() {
     video[video.paused ? "play" : "pause"]();
