@@ -16,6 +16,7 @@ function timer(seconds) {
         
         if (secondsLeft < 0) {
             clearInterval(countdown);
+            timeFinishedSound();
             return;
         }
         displayTimeLeft(secondsLeft);
@@ -41,6 +42,12 @@ function displayEndTime(timestamp) {
 function startTimer() {
     const seconds = parseInt(this.dataset.time);
     timer(seconds);
+}
+
+function timeFinishedSound() {
+    const audio = new Audio("ride.wav");
+    audio.play();
+    document.title = "Finished!";
 }
 
 buttons.forEach(button => button.addEventListener("click", startTimer));
