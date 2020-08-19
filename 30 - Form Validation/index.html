@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="validate.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <div class="container">
+        <header><h2>Create Account</h2></header>
+  
+
+    <form id="form" class="form">
+        <div class="form-control">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="How do people usually call you?" require>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="example@domain.site" require>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Type your secret here!" require>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error Message</small>
+        </div>
+
+        <div class="form-control">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Type your secret again..." require>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error Message</small>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
