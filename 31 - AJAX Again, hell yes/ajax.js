@@ -1,4 +1,5 @@
 const button = document.getElementById("btn");
+const error = document.getElementById("error");
 const animalList = document.getElementById("animal-info");
 const request = new XMLHttpRequest();
 let pageCounter = 1;
@@ -33,7 +34,12 @@ function renderHTML(data) {
     animalList.innerHTML += "<br>";
 }
 
+function renderErrorMessage(err) {
+    error.innerHTML = `Hello! Something went wrong, please try refreshing the page. <strong>ERROR: ${err}</strong></strong>`;
+}
+
 button.addEventListener("click", () => {
     fetchData()
-        .then(data => renderHTML(data));
+        .then(data => renderHTML(data))
+        .catch(err => renderErrorMessage(err));
 });
