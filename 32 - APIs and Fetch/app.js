@@ -28,10 +28,14 @@ function renderCharacterList(characterList) {
 
 async function loadSelected(character) {
     if (character != "Choose a character") {
-        const response = await fetch(`${ENDPOINT}/characters?name=${character}`);
-        const data = await response.json();
+        try {
+            const response = await fetch(`${ENDPOINT}/characters?name=${character}`);
+            const data = await response.json();
 
-        displayRetrievedData(data);
+            displayRetrievedData(data);
+        } catch {
+            error.textContent = "Sorry, we couldn't display the image you requested.";
+        }
     }
 }
 
