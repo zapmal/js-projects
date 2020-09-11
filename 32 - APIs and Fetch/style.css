@@ -3,6 +3,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.error {
+    color: red;
+    font-size: 1.3rem;
+}
+
 .app {
     height: 100%;
     width: 100%;
@@ -34,7 +39,6 @@ body {
     height: 800px;
     width: 600px;
 }
-
 
 .info {
     color: #ccc;

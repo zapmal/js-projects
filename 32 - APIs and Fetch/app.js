@@ -3,12 +3,16 @@ const charactersDropdown = document.getElementById("characters");
 const characterImage = document.querySelector(".image img");
 const characterName = document.querySelector(".name");
 const characterNickname = document.querySelector(".nickname");
+const error = document.querySelector(".error");
 
 async function retrieve() {
-    const response = await fetch(`${ENDPOINT}/characters`);
-    const data = await response.json();
-
-    renderCharacterList(data);
+    try {
+        const response = await fetch(`${ENDPOINT}/characters`);
+        const data = await response.json();
+        renderCharacterList(data);
+    } catch {
+        error.textContent = "Sorry, we can't display the information right now.";
+    }
 }
 
 function renderCharacterList(characterList) {
@@ -27,16 +31,16 @@ async function loadSelected(character) {
         const response = await fetch(`${ENDPOINT}/characters?name=${character}`);
         const data = await response.json();
 
-        data.forEach(d => {
-            characterImage.src = d.img;
-            characterName.textContent = d.name;
-            characterNickname.textContent = d.nickname;
-        });
+        displayRetrievedData(data);
     }
 }
 
 function displayRetrievedData(data) {
-    
+    data.forEach(d => {
+        characterImage.src = d.img;
+        characterName.textContent = d.name;
+        characterNickname.textContent = d.nickname;
+    });
 }
 
 retrieve();
