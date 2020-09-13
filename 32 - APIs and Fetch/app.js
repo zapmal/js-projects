@@ -11,7 +11,7 @@ async function retrieve() {
         const data = await response.json();
         renderCharacterList(data);
     } catch {
-        error.textContent = "Sorry, we can't display the information right now.";
+        displayError("Sorry, we can't display the information right now.");
     }
 }
 
@@ -34,7 +34,7 @@ async function loadSelected(character) {
 
             displayRetrievedData(data);
         } catch {
-            error.textContent = "Sorry, we couldn't display the image you requested.";
+            displayError("Sorry, the image you requested couldn't be displayed, please try again later.");
         }
     }
 }
@@ -45,6 +45,18 @@ function displayRetrievedData(data) {
         characterName.textContent = d.name;
         characterNickname.textContent = d.nickname;
     });
+}
+
+characterImage.addEventListener("error", () => {
+    characterImage.src = "default_image.jpg";
+    characterName.textContent = "Image of the Show";
+    characterNickname.textContent = "";
+    displayError("Sorry, the image you requested couldn't be displayed, please try again later.");
+});
+
+function displayError(message) {
+    error.textContent = message;
+    setTimeout(() => error.textContent = "", 2000);
 }
 
 retrieve();
