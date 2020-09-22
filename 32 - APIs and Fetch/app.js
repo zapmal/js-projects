@@ -47,7 +47,7 @@ function displayRetrievedData(data) {
         characterName.textContent = d.name;
         characterNickname.textContent = `Nickname: ${d.nickname}`;
         characterPortrayedBy.textContent = `Portrayed by: ${d.portrayed}`;
-        characterAppearances.textContent = `Appeared in seasons: ${d.appearance}`;
+        characterAppearances.textContent = `Appears in seasons: ${d.appearance}`;
 
         const dddd = d.appearance;
         console.log(dddd);
