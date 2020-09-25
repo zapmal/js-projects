@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -11,11 +12,17 @@ module.exports = {
         port: 5000
     },
     module: {
+        /*
+        * To use SASS (.scss) files, we need to do the following:
+        * Install sass-loader and node-sass from npm.
+        * Change "test" to /\.scss$/
+        * Add the sass-loader at the bottom.
+        */
         rules: [
             {
                 test: /\.css$/,
                 use: [
-                    { loader: "style-loader" },
+                    { loader: MiniCssExtractPlugin.loader },
                     { loader: "css-loader" }
                 ]
             }
@@ -24,6 +31,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html", 
+        }),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css",  
         })
     ]
 }
