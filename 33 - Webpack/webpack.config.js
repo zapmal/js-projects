@@ -7,11 +7,20 @@ module.exports = {
         path: path.resolve(__dirname, "./build"),
         filename: "bundle.js" 
     },
-
     devServer: {
         port: 5000
     },
-
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            }
+        ]    
+    }, 
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html", 
