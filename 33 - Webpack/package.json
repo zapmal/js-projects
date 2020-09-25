@@ -1,0 +1,21 @@
+{
+  "name": "webpack-practice",
+  "version": "1.0.0",
+  "description": "webpack testing ",
+  "main": "app.js",
+  "scripts": {
+    "start-dev": "npx webpack-dev-server"
+  },
+  "keywords": [
+    "webpack",
+    "javascript"
+  ],
+  "author": "zondazx",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
