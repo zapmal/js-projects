@@ -1,8 +1,11 @@
-import { format } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
+import { showDaysTillChristmas } from "./time";
+
 
 export function showHelloWorld() {
-    console.log(format(new Date(2014, 1, 11), 'MM/dd/yyyy'));
+    console.log("Hello world");
     console.log(uuidv4());
+
+    showDaysTillChristmas();
 }
 
