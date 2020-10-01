@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: "./src/matrix.js",
@@ -8,5 +9,10 @@ module.exports = {
     },
     devServer: {
         port: 5000
-    }
+    }, 
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./index.html"
+        })
+    ]
 }
