@@ -1,3 +1,3 @@
-### Calendar Matrix Script
+### Calendar Matrix 
 
-I'll try my on implementation of the export of a function that returns a matrix to use in a Calendar.
+Implementation of a function that returns a matrix with a calendar represented date.
