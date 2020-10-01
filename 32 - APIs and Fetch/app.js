@@ -48,9 +48,6 @@ function displayRetrievedData(data) {
         characterNickname.textContent = `Nickname: ${d.nickname}`;
         characterPortrayedBy.textContent = `Portrayed by: ${d.portrayed}`;
         characterAppearances.textContent = `Appears in seasons: ${d.appearance}`;
-
-        const dddd = d.appearance;
-        console.log(dddd);
     });
 }
 
