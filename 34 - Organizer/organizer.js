@@ -1,5 +1,5 @@
 const botonAgregarTarea = document.querySelector('.add-items');
-const listaDeTareas = document.querySelector('.plates');
+const listaDeTareas = document.querySelector('.tasks');
 const tareas = JSON.parse(localStorage.getItem("items")) || [];
 
 function agregarTarea(e) {
