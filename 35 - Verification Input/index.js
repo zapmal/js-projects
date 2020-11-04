@@ -6,6 +6,7 @@ function handleInput(e) {
 
   if (input.nextElementSibling && input.value) {
     input.nextElementSibling.focus();
+    input.nextElementSibling.select();
   }
 }
 
@@ -16,7 +17,7 @@ function handlePaste(e) {
     input.value = paste[index] || "";
   });
 
-  const isFilled = [...inputs].every(i => i.value !== "");
+  const isFilled = [...inputs].every(input => input.value !== "");
 
   if (isFilled) {
     inputs.forEach(input => input.classList.add("correct"));
